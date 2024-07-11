@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Cricket Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #imgcontainer{
+            width: 400px;
+            height: 200px;
+        }
+        #imagecontainer{
+            display: flex;
+            justify-content: center;
+        }
+
+    
+        h1{
+            text-align: center;
+            font-size:xxx-large;
+            margin: 30px;
+            color: rgb(47, 122, 179);
+        }
+
+        h2{
+            text-align: center;
+            color: #28a745;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #out{
+            padding: 10px 20px;
+            border: none;
+            background-color: #ca4343;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result, .score {
+            margin: 20px 0;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .links a {
+            font-size: 10px;
+            color: rgb(160, 158, 158);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        #whatsapp-link {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="position: relative;">CardsCricket.Online <span style="font-size: small; color: red; position: absolute; bottom: 0; right: 10;">Beta</span></h1>
+    <h2 id="started">Let's get started!</h2>
+
+    <div id="whatsapp-link">
+        <a href="https://chat.whatsapp.com/your-group-link" target="_blank">
+            <img src="WhatsApp.jpg" alt="Join WhatsApp Group" style="width: 250px; height: 45px; margin-left: 10px;">
+        </a>
+    </div>
+
+    <div id="imagecontainer">
+        <img id="imgcontainer" src="https://sportsmonkie.com/wp-content/uploads/2023/11/Who-is-the-Best-Batsman-in-India.jpg">
+    </div>
+    <div class="container">
+        <label for="cards">Enter Bowler's and Batsman's Cards:</label>
+        <input type="text" id="cards" placeholder="Enter cards e.g spade 2, spade 3">
+        <button onclick="calculateRun()">Submit</button>
+
+        
+        <button id="out" onclick="registerWicket()">Bowled Out!</button>
+        <button id="out" onclick="registerSpecialWicket()">Caught Out</button>
+        <button onclick="enableTextToSpeech()">Enable Text to Speech</button>
+        <div class="result"></div>
+        <div class="score"></div>
+    </div>
+
+    <div class="links">
+        <a href="how2play.html">How to Play</a>
+        <a href="t&C.html">Terms and Conditions</a>
+    </div>
+
+    <script>
+        let balls = 0;
+        let overs = 0;
+        let totalRun = 0;
+        let wickets = 0;
+        let wicketCounter = 0;
+        let specialWicketCounter = 0;
+        let lastRun = 0;
+        let ttsEnabled = false;
+
+        function enableTextToSpeech() {
+            ttsEnabled = true;
+            alert("Text to Speech Enabled");
+        }
+
+        function speak(text) {
+            if (ttsEnabled) {
+                const speech = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(speech);
+            }
+        }
+
+        function calculateRun() {
+            const input = document.getElementById("cards").value.trim();
+            const [bowlerCard, batsmanCard] = input.split(",").map(card => card.trim());
+
+            const bowler = bowlerCard.split(" ");
+            const batsman = batsmanCard.split(" ");
+
+            const bowlerSuite = bowler[0];
+            const bowlerNumber = parseInt(bowler[1]);
+
+            const batsmanSuite = batsman[0];
+            const batsmanNumber = parseInt(batsman[1]);
+
+            let run = 0;
+            if (bowlerSuite === batsmanSuite && batsmanNumber > bowlerNumber) {
+                run = batsmanNumber - bowlerNumber;
+            } else if (batsmanNumber < bowlerNumber) {
+                run = 1;
+            }
+
+            // Check if the run is 1, 2, 3, 4, or 6. Otherwise, it's a dot ball.
+            if (![1, 2, 3, 4, 6].includes(run)) {
+                run = 0;
+            }
+
+            lastRun = run;
+            totalRun += run;
+
+            updateBall();
+            displayResult(run, false);
+        }
+
+        function registerWicket() {
+            wicketCounter++;
+            if (wicketCounter === 2) {
+                wickets++;
+                wicketCounter = 0;
+                totalRun -= lastRun;
+                lastRun = 0;
+                if (wickets >= 10) {
+                    endInnings();
+                } else {
+                    displayResult(0, true);
+                }
+            }
+        }
+
+        function registerSpecialWicket() {
+            specialWicketCounter++;
+            if (specialWicketCounter === 3) {
+                wickets++;
+                specialWicketCounter = 0;
+                totalRun -= lastRun;
+                lastRun = 0;
+                if (wickets >= 10) {
+                    endInnings();
+                } else {
+                    displayResult(0, true);
+                }
+            }
+        }
+
+        function updateBall() {
+            balls++;
+            if (balls > 6) {
+                balls = 1;
+                overs++;
+            }
+        }
+
+        function displayResult(run, isWicket) {
+            const ballDisplay = `${overs}.${balls}`;
+
+            const resultDiv = document.querySelector(".result");
+            if (isWicket) {
+                resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Bowled Out!</p>`;
+                speak("Bowled Out!")
+            } else if (run === 0) {
+                resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Dot Ball!</p>`;
+                speak("Dot Ball!")
+            } else {
+                resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Run: ${run}</p>`;
+                speak(`${run} Runs`);
+            }
+
+            const scoreDiv = document.querySelector(".score");
+            scoreDiv.innerHTML = `<p>Total Runs: ${totalRun}/${wickets}</p>`;
+
+            if (overs >= 20 && balls >= 6) {
+                endInnings();
+            }
+        }
+
+        function endInnings() {
+            document.querySelector("button[onclick='calculateRun()']").disabled = true;
+            document.querySelector("button[onclick='registerWicket()']").disabled = true;
+            document.querySelector("button[onclick='registerSpecialWicket()']").disabled = true;
+            const resultDiv = document.querySelector(".result");
+            resultDiv.innerHTML += `<p>Innings Over!</p>`;
+            speak("Innings Over!");
+        }
+    </script>
+</body>
+</html>
