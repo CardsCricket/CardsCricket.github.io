@@ -10,67 +10,63 @@
             margin: 20px;
         }
 
-        #imgcontainer{
-            width: 400px;
-            height: 200px;
-        }
-        #imagecontainer{
-            display: flex;
-            justify-content: center;
+        #imgcontainer {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
         }
 
-    
-        h1{
+        #imagecontainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
             text-align: center;
-            font-size:xxx-large;
+            font-size: calc(1.5rem + 3vw);
             margin: 30px;
             color: rgb(47, 122, 179);
         }
 
-        h2{
+        h2 {
             text-align: center;
             color: #28a745;
         }
+
         .container {
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
         input[type="text"] {
             padding: 10px;
-            width: 70%;
+            width: calc(100% - 20px);
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
-        #out{
+        #out, button {
             padding: 10px 20px;
             border: none;
-            background-color: #ca4343;
+            background-color: #a72828;
             color: white;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin-right: 10px;
+            margin: 10px 5px;
+            width: calc(50% - 15px);
         }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #28a745;
-            color: white;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        button:hover {
+        #out:hover, button:hover {
             background-color: #218838;
         }
+
         .result, .score {
             margin: 20px 0;
         }
@@ -79,20 +75,49 @@
             text-align: center;
             margin-top: 20px;
         }
+
         .links a {
-            font-size: 10px;
+            font-size: 12px;
             color: rgb(160, 158, 158);
             text-decoration: none;
             margin: 0 10px;
         }
+
         .links a:hover {
             text-decoration: underline;
         }
+
         #whatsapp-link {
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            justify-content: center;
+            align-items: center;
             margin-bottom: 20px;
+        }
+
+        #whatsapp-link img {
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: calc(1.2rem + 3vw);
+            }
+
+            input[type="text"] {
+                width: calc(100% - 20px);
+            }
+
+            #out, button {
+                width: calc(100% - 20px);
+                margin: 10px 0;
+            }
+
+            #imagecontainer img {
+                max-width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
