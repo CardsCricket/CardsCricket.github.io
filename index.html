@@ -26,7 +26,6 @@
             text-align: center;
             font-size: calc(1.5rem + 3vw);
             margin: 30px;
-            color: rgb(47, 122, 179);
         }
 
         h2 {
@@ -51,10 +50,10 @@
             border-radius: 5px;
         }
 
-        #out, button {
+        .btn-green {
             padding: 10px 20px;
             border: none;
-            background-color: #a72828;
+            background-color: #28a745;
             color: white;
             font-size: 16px;
             border-radius: 5px;
@@ -63,12 +62,33 @@
             width: calc(50% - 15px);
         }
 
-        #out:hover, button:hover {
+        .btn-green:hover {
             background-color: #218838;
+        }
+
+        .btn-red {
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff0000;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            width: calc(50% - 15px);
+        }
+
+        .btn-red:hover {
+            background-color: #b30000;
         }
 
         .result, .score {
             margin: 20px 0;
+        }
+
+        .score p {
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .links {
@@ -109,7 +129,7 @@
                 width: calc(100% - 20px);
             }
 
-            #out, button {
+            .btn-green, .btn-red {
                 width: calc(100% - 20px);
                 margin: 10px 0;
             }
@@ -137,13 +157,11 @@
     </div>
     <div class="container">
         <label for="cards">Enter Bowler's and Batsman's Cards:</label>
-        <input type="text" id="cards" placeholder="Enter cards e.g spade 2, spade 3">
-        <button onclick="calculateRun()">Submit</button>
-
-        
-        <button id="out" onclick="registerWicket()">Bowled Out!</button>
-        <button id="out" onclick="registerSpecialWicket()">Caught Out</button>
-        <button onclick="enableTextToSpeech()">Enable Text to Speech</button>
+        <input type="text" id="cards" placeholder="Enter cards e.g S 2, S 3">
+        <button class="btn-green" onclick="calculateRun()">Submit</button>
+        <button class="btn-red" onclick="registerWicket()">Bowled Out!</button>
+        <button class="btn-red" onclick="registerSpecialWicket()">Caught Out!</button>
+        <button class="btn-green" onclick="enableTextToSpeech()">Play Audio</button>
         <div class="result"></div>
         <div class="score"></div>
     </div>
@@ -239,10 +257,14 @@
 
         function updateBall() {
             balls++;
+            if (balls === 6) { 
+                speak(`After ${overs + 1} overs, the score is ${totalRun} for ${wickets} wickets.`);
+            }
             if (balls > 6) {
                 balls = 1;
                 overs++;
             }
+
         }
 
         function displayResult(run, isWicket) {
@@ -257,7 +279,8 @@
                 speak("Dot Ball!")
             } else {
                 resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Run: ${run}</p>`;
-                speak(`${run} Runs`);
+                if (balls != 6)
+                    speak(`${run} Runs`);
             }
 
             const scoreDiv = document.querySelector(".score");
