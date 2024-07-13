@@ -143,7 +143,7 @@
 </head>
 <body>
 
-    <h1 style="position: relative;">CardsCricket.Online</h1>
+    <h1 style="position: relative;">CardsCricket.Online <span style="font-size: small; color: red; position: absolute; bottom: 0; right: 10;">Beta</span></h1>
     <h2 id="started">Let's get started!</h2>
 
     <div id="whatsapp-link">
@@ -194,20 +194,21 @@
         }
 
         function calculateRun() {
-            const input = document.getElementById("cards").value.trim();
-            const [bowlerCard, batsmanCard] = input.split(",").map(card => card.trim());
+        const input = document.getElementById("cards").value.trim();
+        const [bowlerCard, batsmanCard] = input.split(",").map(card => card.trim());
 
-            const bowler = bowlerCard.split(" ");
-            const batsman = batsmanCard.split(" ");
+        const bowler = bowlerCard.split(" ");
+        const batsman = batsmanCard.split(" ");
 
-            const bowlerSuite = bowler[0];
-            const bowlerNumber = parseInt(bowler[1]);
+        const bowlerSuite = bowler[0];
+        const bowlerNumber = parseInt(bowler[1]);
 
-            const batsmanSuite = batsman[0];
-            const batsmanNumber = parseInt(batsman[1]);
+        const batsmanSuite = batsman[0];
+        const batsmanNumber = parseInt(batsman[1]);
 
-            let run = 0;
-            if (bowlerSuite === batsmanSuite && batsmanNumber > bowlerNumber) {
+        let run = 0;
+        if (bowlerSuite === batsmanSuite) {
+            if (batsmanNumber > bowlerNumber) {
                 run = batsmanNumber - bowlerNumber;
             } else if (batsmanNumber < bowlerNumber) {
                 run = 1;
@@ -223,7 +224,38 @@
 
             updateBall();
             displayResult(run, false);
+        } else {
+            updateBall();
+            displayResult(0, false, true); // Indicate it's a dot ball due to different suites
         }
+    }
+
+    function displayResult(run, isWicket, isDotBall = false) {
+        const ballDisplay = `${overs}.${balls}`;
+
+        const resultDiv = document.querySelector(".result");
+        if (isWicket) {
+            resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Bowled Out!</p>`;
+            speak("Bowled Out!");
+        } else if (isDotBall) {
+            resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Dot Ball!</p>`;
+            speak("Dot Ball!");
+        } else if (run === 0) {
+            resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Dot Ball!</p>`;
+            speak("Dot Ball!");
+        } else {
+            resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Run: ${run}</p>`;
+            if (balls != 6)
+                speak(`${run} Runs`);
+        }
+
+        const scoreDiv = document.querySelector(".score");
+        scoreDiv.innerHTML = `<p>Total Runs: ${totalRun}/${wickets}</p>`;
+
+        if (overs >= 20 && balls >= 6) {
+            endInnings();
+        }
+    }
 
         function registerWicket() {
             wicketCounter++;
