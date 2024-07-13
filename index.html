@@ -6,167 +6,170 @@
     <title>Card Cricket Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #121212;
-            color: #ffffff;
-        }
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #121212;
+    color: #ffffff;
+}
 
-        #imgcontainer {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
+#imgcontainer {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
 
-        #imagecontainer {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+#imagecontainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-        h1 {
-            text-align: center;
-            font-size: calc(1.5rem + 3vw);
-            margin: 30px;
-            color: #ff8c00;
-        }
+h1 {
+    text-align: center;
+    font-size: calc(1.5rem + 3vw);
+    margin: 30px;
+    color: #ff8c00;
+}
 
-        h2 {
-            text-align: center;
-            color: #ff8c00;
-        }
+h2 {
+    text-align: center;
+    color: #ff8c00;
+}
 
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255,140,0,0.5);
-            background-color: #333333;
-        }
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    background-color: #333333;
+}
 
-        input[type="text"] {
-            padding: 10px;
-            width: calc(100% - 20px);
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #1f1f1f;
-            color: #ffffff;
-        }
+input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
 
-        .btn {
-            padding: 15px;
-            border: none;
-            color: white;
-            font-size: 12px;
-            border-radius: 50%; /* Make buttons circular */
-            cursor: pointer;
-            margin: 10px 5px;
-            width: 50px; /* Set a fixed width and height for perfect circles */
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.btn {
+    padding: 15px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 50%; /* Make buttons circular */
+    cursor: pointer;
+    margin: 10px 5px;
+    width: 50px; /* Fixed width for perfect circles */
+    height: 50px; /* Fixed height for perfect circles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .btn-green {
-            background-color: #ff8c00;
-        }
+.btn-green {
+    background-color: #ff8c00;
+}
 
-        .btn-green:hover {
-            background-color: #e67e22;
-        }
+.btn-green:hover {
+    background-color: #e67e22;
+}
 
-        .btn-red {
-            background-color: #ff0000;
-        }
+.btn-red {
+    background-color: #ff0000;
+}
 
-        .btn-red:hover {
-            background-color: #b30000;
-        }
+.btn-red:hover {
+    background-color: #b30000;
+}
 
-        .btn-grey {
-            background-color: #666666;
-        }
+.btn-grey {
+    background-color: #666666;
+}
 
-        .btn-grey:hover {
-            background-color: #4d4d4d;
-        }
+.btn-grey:hover {
+    background-color: #4d4d4d;
+}
 
-        .btn-row {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-        .result, .score {
-            margin: 20px 0;
-        }
+.result,
+.score {
+    margin: 20px 0;
+}
 
-        .score p {
-            font-size: 24px;
-            font-weight: bold;
-        }
+.score p {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-        .links {
-            text-align: center;
-            margin-top: 20px;
-        }
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
 
-        .links a {
-            font-size: 12px;
-            color: #ff8c00;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+.links a {
+    font-size: 12px;
+    color: #ff8c00;
+    text-decoration: none;
+    margin: 0 10px;
+}
 
-        .links a:hover {
-            text-decoration: underline;
-        }
+.links a:hover {
+    text-decoration: underline;
+}
 
-        #whatsapp-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+#whatsapp-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-        #whatsapp-link img {
-            width: 80%;
-            max-width: 250px;
-            height: auto;
-        }
+#whatsapp-link img {
+    width: 80%;
+    max-width: 250px;
+    height: auto;
+}
 
-        #selected-cards {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #1f1f1f;
-            color: #ffffff;
-        }
+#selected-cards {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: calc(1.2rem + 3vw);
-            }
+@media (max-width: 600px) {
+    h1 {
+        font-size: calc(1.2rem + 3vw);
+    }
 
-            input[type="text"] {
-                width: calc(100% - 20px);
-            }
+    input[type="text"] {
+        width: calc(100% - 20px);
+    }
 
-            .btn {
-                width: calc(100% - 20px);
-                margin: 10px 0;
-            }
+    .btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
 
-            #imagecontainer img {
-                max-width: 100%;
-                height: auto;
-            }
-        }
+    #imagecontainer img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
     </style>
 </head>
 <body>
