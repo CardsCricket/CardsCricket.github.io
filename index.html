@@ -5,175 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Cricket Game</title>
     <style>
-      body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #121212;
-    color: #ffffff;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #ffffff;
+        }
 
-#imgcontainer {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-}
+        #imgcontainer {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
 
-#imagecontainer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+        #imagecontainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-h1 {
-    text-align: center;
-    font-size: calc(1.5rem + 3vw);
-    margin: 30px;
-    color: white;
-}
+        h1 {
+            text-align: center;
+            font-size: calc(1.5rem + 3vw);
+            margin: 30px;
+            color: white;
+        }
 
-h2 {
-    text-align: center;
-    color: white;
-}
+        h2 {
+            text-align: center;
+            color: white;
+        }
 
-.container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
-    background-color: #333333;
-}
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+            background-color: #333333;
+        }
 
-input[type="text"] {
-    padding: 10px;
-    width: calc(100% - 20px);
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #1f1f1f;
-    color: #ffffff;
-}
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
 
-.btn {
-    padding: 15px;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bolder;
-    border-radius: 50%; /* Make buttons circular */
-    cursor: pointer;
-    margin: 10px 5px;
-    width: 50px; /* Fixed width for perfect circles */
-    height: 50px; /* Fixed height for perfect circles */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .btn {
+            padding: 15px;
+            border: none;
+            color: white;
+            font-size: 25px;
+            font-weight: bolder;
+            border-radius: 50%; /* Make buttons circular */
+            cursor: pointer;
+            margin: 10px 5px;
+            width: 50px; /* Fixed width for perfect circles */
+            height: 50px; /* Fixed height for perfect circles */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.btn-green {
-    background-color: #ff8c00;
-}
+        .btn-green {
+            background-color: #ff8c00;
+        }
 
-.btn-green:hover {
-    background-color: #e67e22;
-}
+        .btn-green:hover {
+            background-color: #e67e22;
+        }
 
-.btn-red {
-    background-color: #ff0000;
-}
+        .btn-red {
+            background-color: #ff0000;
+        }
 
-.btn-red:hover {
-    background-color: #b30000;
-}
+        .btn-red:hover {
+            background-color: #b30000;
+        }
 
-.btn-grey {
-    background-color: #666666;
-}
+        .btn-grey {
+            background-color: #666666;
+        }
 
-.btn-grey:hover {
-    background-color: #4d4d4d;
-}
+        .btn-grey:hover {
+            background-color: #4d4d4d;
+        }
 
-.btn-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
-}
+        .btn-rectangular {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            width: auto;
+            height: auto;
+        }
 
-.result,
-.score {
-    margin: 20px 0;
-}
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
+        }
 
-.score p {
-    font-size: 24px;
-    font-weight: bold;
-}
+        .result,
+        .score {
+            margin: 20px 0;
+        }
 
-.links {
-    text-align: center;
-    margin-top: 20px;
-}
+        .score p {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-.links a {
-    font-size: 12px;
-    color: #ff8c00;
-    text-decoration: none;
-    margin: 0 10px;
-}
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-.links a:hover {
-    text-decoration: underline;
-}
+        .links a {
+            font-size: 12px;
+            color: grey;
+            text-decoration: none;
+            margin: 0 10px;
+        }
 
-#whatsapp-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
+        .links a:hover {
+            text-decoration: underline;
+        }
 
-#whatsapp-link img {
-    width: 80%;
-    max-width: 250px;
-    height: auto;
-}
+        #whatsapp-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-#selected-cards {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #1f1f1f;
-    color: #ffffff;
-}
+        #whatsapp-link img {
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+        }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: calc(1.2rem + 3vw);
-    }
+        #selected-cards {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
 
-    input[type="text"] {
-        width: calc(100% - 20px);
-    }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: calc(1.2rem + 3vw);
+            }
 
-    .btn {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-    }
+            input[type="text"] {
+                width: calc(100% - 20px);
+            }
 
-    #imagecontainer img {
-        max-width: 100%;
-        height: auto;
-    }
+            .btn {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
 
-    .btn-row {
-        justify-content: center; /* Center align buttons on smaller screens */
-    }
-}
+            #imagecontainer img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .btn-row {
+                justify-content: center; /* Center align buttons on smaller screens */
+            }
+        }
 
     </style>
 </head>
@@ -189,7 +197,7 @@ input[type="text"] {
     </div>
 
     <div id="imagecontainer">
-        <img id="imgcontainer" src="https://sportsmonkie.com/wp-content/uploads/2023/11/Who-is-the-Best-Batsman-in-India.jpg">
+        
     </div>
     <div class="container">
         <input type="text" id="cards" placeholder="Select cards...">
@@ -216,10 +224,11 @@ input[type="text"] {
             <button class="btn btn-grey" onclick="selectCard(10)">10</button>
         </div>
         <div class="btn-row">
-            <button class="btn btn-red" onclick="registerWicket()">Bowled Out!</button>
-            <button class="btn btn-red" onclick="registerSpecialWicket()">Caught Out!</button>
-            <button class="btn btn-green" onclick="calculateRun()">Submit</button>
-            <button class="btn btn-green" onclick="enableTextToSpeech()">Play Audio</button>
+            <button class="btn btn-rectangular btn-red" onclick="registerWicket()">Bowled Out!</button>
+            <button class="btn btn-rectangular btn-red" onclick="registerSpecialWicket()">Caught Out!</button>
+            <button class="btn btn-rectangular btn-green" onclick="calculateRun()">Submit</button>
+            <button class="btn btn-rectangular btn-green" onclick="enableTextToSpeech()">Play Audio</button>
+            <button class="btn btn-rectangular btn-grey" onclick="redoLastAction()">Redo</button>
         </div>
         <div class="result"></div>
         <div class="score"></div>
@@ -232,151 +241,227 @@ input[type="text"] {
 
     <script>
         let balls = 0;
-        let overs = 0;
-        let totalRun = 0;
-        let wickets = 0;
-        let wicketCounter = 0;
-        let specialWicketCounter = 0;
-        let lastRun = 0;
-        let ttsEnabled = false;
-        let selectedCards = [];
+let overs = 0;
+let totalRun = 0;
+let wickets = 0;
+let wicketCounter = 0;
+let specialWicketCounter = 0;
+let lastRun = 0;
+let ttsEnabled = false;
+let selectedCards = [];
+let lastActions = []; // To keep track of each ball's action
 
-        function enableTextToSpeech() {
-            ttsEnabled = true;
-            alert("Text to Speech Enabled");
+function enableTextToSpeech() {
+    ttsEnabled = true;
+    alert("Text to Speech Enabled");
+}
+
+function speak(text) {
+    if (ttsEnabled) {
+        const speech = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(speech);
+    }
+}
+
+function selectCard(card) {
+    selectedCards.push(card);
+    updateSelectedCards();
+    if (selectedCards.length === 4) {
+        document.getElementById("cards").value = `${selectedCards[0]} ${selectedCards[1]}, ${selectedCards[2]} ${selectedCards[3]}`;
+        selectedCards = [];
+        updateSelectedCards();
+    }
+}
+
+function updateSelectedCards() {
+    const CardsDiv = document.getElementById("selected-cards");
+    CardsDiv.innerHTML = "<strong>Selected Cards:</strong> " + selectedCards.join(", ");
+}
+
+function saveLastAction(run, isWicket, isDotBall) {
+    lastActions.push({
+        balls: balls,
+        overs: overs,
+        totalRun: totalRun,
+        wickets: wickets,
+        wicketCounter: wicketCounter,
+        specialWicketCounter: specialWicketCounter,
+        lastRun: lastRun,
+        ttsEnabled: ttsEnabled,
+        selectedCards: [...selectedCards],
+        run: run,
+        isWicket: isWicket,
+        isDotBall: isDotBall
+    });
+}
+
+function calculateRun() {
+    const input = document.getElementById("cards").value.trim();
+    if (!input) {
+        alert("Please select cards before submitting.");
+        return;
+    }
+    const [bowlerCard, batsmanCard] = input.split(",").map(card => card.trim());
+
+    const bowler = bowlerCard.split(" ");
+    const batsman = batsmanCard.split(" ");
+
+    const bowlerSuite = bowler[0];
+    const bowlerNumber = parseInt(bowler[1]);
+
+    const batsmanSuite = batsman[0];
+    const batsmanNumber = parseInt(batsman[1]);
+
+    let run = 0;
+    if (bowlerSuite === batsmanSuite) {
+        if (batsmanNumber > bowlerNumber) {
+            run = batsmanNumber - bowlerNumber;
+        } else {
+            run = 1;
+        }
+    }
+
+    if (![1, 2, 3, 4, 6].includes(run)) {
+        run = 0;
+        displayResult(run, false, true); // Display dot ball
+    } else {
+        lastRun = run;
+        totalRun += run;
+        updateBall();
+        displayResult(run, false, false);
+    }
+
+    saveLastAction(run, false, run === 0);
+}
+
+function registerWicket() {
+    wicketCounter++;
+    if (wicketCounter === 2) {
+        wickets++;
+        wicketCounter = 0;
+        totalRun -= lastRun;
+        lastRun = 0;
+        if (wickets >= 10) {
+            endInnings();
+        } else {
+            displayResult(0, true);
+        }
+    }
+
+    saveLastAction(0, true, false);
+}
+
+function registerSpecialWicket() {
+    specialWicketCounter++;
+    if (specialWicketCounter === 3) {
+        wickets++;
+        specialWicketCounter = 0;
+        totalRun -= lastRun;
+        lastRun = 0;
+        if (wickets >= 10) {
+            endInnings();
+        } else {
+            displayResult(0, true);
+        }
+    }
+
+    saveLastAction(0, true, false);
+}
+
+function updateBall() {
+    balls++;
+    if (balls === 6) {
+        speak(`After ${overs + 1} overs, the score is ${totalRun} for ${wickets} wickets.`);
+    }
+    if (balls > 6) {
+        balls = 1;
+        overs++;
+    }
+}
+
+function displayResult(run, isWicket, isDotBall = false) {
+    const ballDisplay = `${overs}.${balls}`;
+
+    const resultDiv = document.querySelector(".result");
+    if (isWicket) {
+        resultDiv.innerHTML += `<p data-ball="${ballDisplay}">Ball: ${ballDisplay}, Bowled Out!</p>`;
+        speak("Bowled Out!");
+    } else if (isDotBall) {
+        resultDiv.innerHTML += `<p data-ball="${ballDisplay}">Ball: ${ballDisplay}, Dot Ball!</p>`;
+        speak("Dot Ball!");
+    } else {
+        resultDiv.innerHTML += `<p data-ball="${ballDisplay}">Ball: ${ballDisplay}, Run: ${run}</p>`;
+        if (balls != 6)
+            speak(`${run} Runs`);
+    }
+
+    const scoreDiv = document.querySelector(".score");
+    scoreDiv.innerHTML = `<p>Total Runs: ${totalRun}/${wickets}</p>`;
+
+    if (overs >= 20 && balls >= 6) {
+        endInnings();
+    }
+}
+
+function redoLastAction() {
+    if (lastActions.length > 0) {
+        const lastAction = lastActions.pop();
+
+        // Remove the last displayed ball's result
+        const ballDisplay = `${lastAction.overs}.${lastAction.balls}`;
+        const resultDiv = document.querySelector(".result");
+        const lastBallResult = resultDiv.querySelector(`[data-ball="${ballDisplay}"]`);
+        if (lastBallResult) {
+            resultDiv.removeChild(lastBallResult);
         }
 
-        function speak(text) {
-            if (ttsEnabled) {
-                const speech = new SpeechSynthesisUtterance(text);
-                window.speechSynthesis.speak(speech);
-            }
-        }       
+        balls = lastAction.balls;
+        overs = lastAction.overs;
+        wickets = lastAction.wickets;
+        wicketCounter = lastAction.wicketCounter;
+        specialWicketCounter = lastAction.specialWicketCounter;
+        lastRun = lastAction.lastRun;
+        ttsEnabled = lastAction.ttsEnabled;
+        selectedCards = [...lastAction.selectedCards];
 
-        function selectCard(card) {
-            selectedCards.push(card);
-            updateSelectedCards();
-            if (selectedCards.length === 4) {
-                document.getElementById("cards").value = `${selectedCards[0]} ${selectedCards[1]}, ${selectedCards[2]} ${selectedCards[3]}`;
-                selectedCards = [];
-                updateSelectedCards();
+        // Subtract the last run from totalRun
+        totalRun -= lastAction.run;
+
+        // Check if the last action was a wicket and adjust wickets count
+        if (lastAction.isWicket) {
+            wickets--;
+        }
+
+        // Update UI for total runs, wickets, and overs/balls
+        const scoreDiv = document.querySelector(".score");
+        scoreDiv.innerHTML = `<p>Total Runs: ${totalRun}/${wickets}</p>`;
+
+        // Decrement the ball count if it's greater than 1
+        if (balls > 1) {
+            balls--;
+        } else {
+            // If balls is 1, reset it to 6 and decrement overs
+            balls = 6;
+            if (overs > 0) {
+                overs--;
             }
         }
 
-        function updateSelectedCards() {
-            const selectedCardsDiv = document.getElementById("selected-cards");
-            selectedCardsDiv.innerHTML = "<strong>Selected Cards:</strong> " + selectedCards.join(", ");
-        }
+        updateSelectedCards();
+    }
+}
 
-        function calculateRun() {
-            const input = document.getElementById("cards").value.trim();
-            if (!input) {
-                alert("Please select cards before submitting.");
-                return;
-            }
-            const [bowlerCard, batsmanCard] = input.split(",").map(card => card.trim());
 
-            const bowler = bowlerCard.split(" ");
-            const batsman = batsmanCard.split(" ");
+function endInnings() {
+    document.querySelector("button[onclick='calculateRun()']").disabled = true;
+    document.querySelector("button[onclick='registerWicket()']").disabled = true;
+    document.querySelector("button[onclick='registerSpecialWicket()']").disabled = true;
+    const resultDiv = document.querySelector(".result");
+    resultDiv.innerHTML += `<p>Innings Over!</p>`;
+    speak("Innings Over!");
+}
 
-            const bowlerSuite = bowler[0];
-            const bowlerNumber = parseInt(bowler[1]);
 
-            const batsmanSuite = batsman[0];
-            const batsmanNumber = parseInt(batsman[1]);
-
-            let run = 0;
-            if (bowlerSuite === batsmanSuite && batsmanNumber > bowlerNumber) {
-                run = batsmanNumber - bowlerNumber;
-            } else if (batsmanNumber < bowlerNumber) {
-                run = 1;
-            }
-
-            // Check if the run is 1, 2, 3, 4, or 6. Otherwise, it's a dot ball.
-            if (![1, 2, 3, 4, 6].includes(run)) {
-                run = 0;
-                displayResult(run, false, true); // Display dot ball
-            } else {
-                lastRun = run;
-                totalRun += run;
-                updateBall();
-                displayResult(run, false, false);
-            }
-        }
-
-        function registerWicket() {
-            wicketCounter++;
-            if (wicketCounter === 2) {
-                wickets++;
-                wicketCounter = 0;
-                totalRun -= lastRun;
-                lastRun = 0;
-                if (wickets >= 10) {
-                    endInnings();
-                } else {
-                    displayResult(0, true);
-                }
-            }
-        }
-
-        function registerSpecialWicket() {
-            specialWicketCounter++;
-            if (specialWicketCounter === 3) {
-                wickets++;
-                specialWicketCounter = 0;
-                totalRun -= lastRun;
-                lastRun = 0;
-                if (wickets >= 10) {
-                    endInnings();
-                } else {
-                    displayResult(0, true);
-                }
-            }
-        }
-
-        function updateBall() {
-            balls++;
-            if (balls === 6) { 
-                speak(`After ${overs + 1} overs, the score is ${totalRun} for ${wickets} wickets.`);
-            }
-            if (balls > 6) {
-                balls = 1;
-                overs++;
-            }
-        }
-
-        function displayResult(run, isWicket, isDotBall = false) {
-            const ballDisplay = `${overs}.${balls}`;
-
-            const resultDiv = document.querySelector(".result");
-            if (isWicket) {
-                resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Bowled Out!</p>`;
-                speak("Bowled Out!")
-            } else if (isDotBall) {
-                resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Dot Ball!</p>`;
-                speak("Dot Ball!");
-            } else {
-                resultDiv.innerHTML += `<p>Ball: ${ballDisplay}, Run: ${run}</p>`;
-                if (balls != 6)
-                speak(`${run} Runs`);
-            }
-
-            const scoreDiv = document.querySelector(".score");
-            scoreDiv.innerHTML = `<p>Total Runs: ${totalRun}/${wickets}</p>`;
-
-            if (overs >= 20 && balls >= 6) {
-                endInnings();
-            }
-        }
-
-        function endInnings() {
-            document.querySelector("button[onclick='calculateRun()']").disabled = true;
-            document.querySelector("button[onclick='registerWicket()']").disabled = true;
-            document.querySelector("button[onclick='registerSpecialWicket()']").disabled = true;
-            const resultDiv = document.querySelector(".result");
-            resultDiv.innerHTML += `<p>Innings Over!</p>`;
-            speak("Innings Over!");
-        }
     </script>
 </body>
 </html>
