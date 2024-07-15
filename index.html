@@ -72,12 +72,20 @@
             align-items: center;
         }
 
+        .btn-audio{
+            background-color: orange;
+        }
+
+        .btn-audio:hover{
+            background-color: rgb(179, 131, 41);
+        }
+
         .btn-green {
-            background-color: #ff8c00;
+            background-color: rgb(59, 174, 59);
         }
 
         .btn-green:hover {
-            background-color: #e67e22;
+            background-color: rgb(52, 138, 52);
         }
 
         .btn-red {
@@ -90,6 +98,8 @@
 
         .btn-grey {
             background-color: #666666;
+            padding: 5%;
+            font-size: xx-large;
         }
 
         .btn-grey:hover {
@@ -97,16 +107,16 @@
         }
 
         .btn-rectangular {
-            padding: 10px 20px;
+            padding: 20px 40px;
             border-radius: 5px;
-            font-size: 20px;
+            font-size: 15px;
             width: auto;
             height: auto;
         }
 
         .btn-row {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
         }
 
@@ -227,8 +237,8 @@
             <button class="btn btn-rectangular btn-red" onclick="registerWicket()">Bowled Out!</button>
             <button class="btn btn-rectangular btn-red" onclick="registerSpecialWicket()">Caught Out!</button>
             <button class="btn btn-rectangular btn-green" onclick="calculateRun()">Submit</button>
-            <button class="btn btn-rectangular btn-green" onclick="enableTextToSpeech()">Play Audio</button>
-            <button class="btn btn-rectangular btn-grey" onclick="redoLastAction()">Redo</button>
+            <button class="btn btn-rectangular btn-audio" onclick="enableTextToSpeech()">Play Audio</button>
+            <button class="btn btn-rectangular btn-grey" onclick="redoLastAction()">Back</button>
         </div>
         <div class="result"></div>
         <div class="score"></div>
@@ -391,8 +401,13 @@ function displayResult(run, isWicket, isDotBall = false) {
         speak("Dot Ball!");
     } else {
         resultDiv.innerHTML += `<p data-ball="${ballDisplay}">Ball: ${ballDisplay}, Run: ${run}</p>`;
-        if (balls != 6)
-            speak(`${run} Runs`);
+        if (balls != 6){
+            if(run === 1)
+                speak(`${run} Run`);
+            else
+                speak(`${run} Runs`);
+        }
+            
     }
 
     const scoreDiv = document.querySelector(".score");
